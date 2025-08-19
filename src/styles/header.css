@@ -1,0 +1,15 @@
+header{
+  background-color: rgb(254, 42, 63);
+  height: 14vh;
+}
+
+.logos{
+  display: flex;
+  justify-content: center;
+
+}
+
+.sections{
+  display: flex;
+  justify-content: space-around;
+}
