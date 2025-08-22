@@ -105,15 +105,18 @@ function App() {
 
         <Route path='/Admins'
         element={
-          //<ProtectedRoute allowedRoles={['super_admin']}>
+          <ProtectedRoute allowedRoles={['super_admin']}>
             <Admins/>
-          //</ProtectedRoute>
+          </ProtectedRoute>
         }
         />
 
         <Route path='/edit-super-admin'
         element={
-          <EditSuperAdmin/>
+          <ProtectedRoute allowedRoles={['super_admin']}>
+            <EditSuperAdmin/>
+          </ProtectedRoute>
+
         }
         />
 
@@ -121,7 +124,10 @@ function App() {
 
         <Route path='/categories'
         element={
-          <Categories/>
+          <ProtectedRoute allowedRoles={['super_admin', 'admin']}>
+            <Categories/>
+          </ProtectedRoute>
+
         }
         />
 
@@ -129,7 +135,10 @@ function App() {
 
         <Route path='/add-product'
           element={
-            <AddProduct/>
+            <ProtectedRoute allowedRoles={['super_admin', 'admin']}>
+              <AddProduct/>
+            </ProtectedRoute>
+
           }
         />
 
