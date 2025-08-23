@@ -1,26 +1,20 @@
+
 import React, { useState, useEffect } from "react";
-import { useAuth } from "../context/AuthContext";
+
 
 function isValidPassword(password: string):boolean {
   if (typeof password !== 'string'){
     return false
   }
 
-  const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+={}\[\]|\\:;"'<>,.?/~`-])[A-Za-z\d!@#$%^&*()_+={}\[\]|\\:;"'<>,.?/~`-]{8,}$/;
+  const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+={}[\]|\\:;"'<>,.?/~`-])[A-Za-z\d!@#$%^&*()_+={}[\]|\\:;"'<>,.?/~`-]{8,}$/;
   return passwordRegex.test(password)
 };
 
 
 
+
 function Admins(){
-
-
-  ////////////////////    AUTENTICATION         ///////////////
-  const { user } = useAuth();
-  const isSuperAdmin = user && user.role === 'super_admin'
-
-
-
 
   //////////////////////   FETCH ADMINS DATA   //////////////////////////////
 
@@ -42,7 +36,7 @@ function Admins(){
       try{
 
       const jwtToken = localStorage.getItem('jwtToken');
-      const backendUrl = 'http://localhost:3000/api/users/getAdminsUsername';
+      const backendUrl = `${import.meta.env.VITE_BACKEND_URL}/users/getAdminsUsername`;
 
       const res = await fetch(backendUrl, {
           method: "GET",
@@ -134,7 +128,7 @@ function Admins(){
         return;
       }
       */
-      const backendUrl = 'http://localhost:3000/api/users/add-admin';
+      const backendUrl = `${import.meta.env.VITE_BACKEND_URL}/users/add-admin`;
       const jwtToken = localStorage.getItem('jwtToken');
       /*
       if (!jwtToken){
@@ -174,19 +168,8 @@ function Admins(){
       setIsLoading(false);
     }
   };
-  /*
-  if (!isSuperAdmin) { // Se mantiene la protección inicial a nivel de componente para UX
-    return (
-      <div className="flex justify-center items-center min-h-screen bg-gray-100 p-4">
-        <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md text-center">
-          <h1 className="text-2xl font-bold text-gray-800 mb-4">Acceso Denegado</h1>
-          <p className="text-red-600">Solo los Super Administradores pueden acceder a esta sección.</p>
-          <p className="text-gray-500 mt-2">Por favor, inicia sesión con una cuenta de Super Administrador.</p>
-        </div>
-      </div>
-    );
-  }
-  */
+
+
 
 
 
@@ -216,7 +199,7 @@ function Admins(){
       try {
 
         const jwtToken = localStorage.getItem('jwtToken');
-        const backendUrl = 'http://localhost:3000/api/users/deleteAdmin';
+        const backendUrl = `${import.meta.env.VITE_BACKEND_URL}/users/deleteAdmin`;
 
         const res = await fetch(backendUrl, {
           method: "DELETE",

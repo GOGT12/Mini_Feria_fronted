@@ -31,7 +31,7 @@ function AddProduct(){
     try {
 
       const jwtToken = localStorage.getItem('jwtToken');
-      const backendUrl ='http://localhost:3000/api/categories/get-categories-idname';
+      const backendUrl =`${import.meta.env.VITE_BACKEND_URL}/categories/get-categories-idname`;
 
       if(!jwtToken){
         console.error('No estas autenticado inicia sesion')
@@ -380,7 +380,7 @@ function AddProduct(){
         category_id: parseInt(productData.category_id),
       };
 
-      const backendUrl = 'http://localhost:3000/api/products/add-product';
+      const backendUrl = `${import.meta.env.VITE_BACKEND_URL}/products/add-product`;
 
       const res = await fetch(backendUrl, {
         method: "POST",
@@ -420,7 +420,7 @@ function AddProduct(){
           stock : parseInt(productData.stock),
           is_default : productData.is_default
         }
-        const backendUrl2 = 'http://localhost:3000/api/products/add-product-variant';
+        const backendUrl2 = `${import.meta.env.VITE_BACKEND_URL}/products/add-product-variant`;
 
         const variantRes = await fetch(backendUrl2, {
           method: 'POST',
@@ -458,7 +458,7 @@ function AddProduct(){
               sort_order : productData.sort_order[i],
             }
 
-            const backendUrl = 'http://localhost:3000/api/products/add-attribute';
+            const backendUrl = `${import.meta.env.VITE_BACKEND_URL}/products/add-attribute`;
 
             const res = await fetch(backendUrl, {
               method: 'POST',
@@ -526,7 +526,7 @@ function AddProduct(){
         is_default: productData.is_default,
       }
 
-      const backendUrl = 'http://localhost:3000/api/products/add-product-variant';
+      const backendUrl = `${import.meta.env.VITE_BACKEND_URL}/products/add-product-variant`;
 
       const variantRes = await fetch(backendUrl, {
         method: 'POST',
@@ -561,7 +561,7 @@ function AddProduct(){
           sort_order: productData.sort_order[i],
           }
 
-          const backendUrl = 'http://localhost:3000/api/products/add-attribute';
+          const backendUrl = `${import.meta.env.VITE_BACKEND_URL}/products/add-attribute`;
 
           const attributeRes = await fetch(backendUrl, {
             method: "POST",
@@ -979,7 +979,7 @@ function AddProduct(){
       }
 
 
-      const backendUrl = 'http://localhost:3000/api/products/add-product-images';
+      const backendUrl = `${import.meta.env.VITE_BACKEND_URL}/products/add-product-images`;
       const res = await fetch(backendUrl, {
         method: "POST",
         headers: {

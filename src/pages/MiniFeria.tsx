@@ -17,7 +17,7 @@ const MiniFeria = () => {
 
   const fetchProducts = async () => {
     try{
-      const backendUrl = 'http://localhost:3000/api/products/get-products';
+      const backendUrl = `${import.meta.env.VITE_BACKEND_URL}/products/get-products`;
 
       const res = await fetch(backendUrl, {
         method: "GET",

@@ -36,7 +36,7 @@ function AdminLogin() {
     try {
       // Asegúrate de que esta URL y puerto coincidan con tu backend
       // Si tu backend está en el puerto 5000, cámbialo a 'http://localhost:5000/api/users/loginAdminAuth'
-      const backendUrl = 'http://localhost:3000/api/users/loginAdminAuth'; // Usando el PORT de tu app.ts (5000 por defecto)
+      const backendUrl = `${import.meta.env.VITE_BACKEND_URL}/users/loginAdminAuth`; // Usando el PORT de tu app.ts (5000 por defecto)
 
       const response = await fetch(backendUrl, {
         method: 'POST',

@@ -19,7 +19,7 @@ const deleteProduct = async (
 
     console.log(id)
     const jwtToken = localStorage.getItem('jwtToken');
-    const backendUrl = `http://localhost:3000/api/products/delete-product/${id}`;
+    const backendUrl = `${import.meta.env.VITE_BACKEND_URL}/products/delete-product/${id}`;
     const res = await fetch(backendUrl, {
       method: 'PUT',
       headers: {
@@ -35,6 +35,7 @@ const deleteProduct = async (
 
     }else{
       console.error(`Frontend: Hubo un error al eliminar el producto con el id ${id}.`)
+      console.log(data.error)
     }
   }catch(err){
     console.error('Hubo un error al conectarse con el servidor', err);
@@ -79,7 +80,7 @@ const Product = ({ id, name, price, url, }: ProductProps) => {
       <div className="p-2">
         <Link to={`/product/${id}`}>
           {/* Nombre del producto */}
-          <h3 className="text-sm font-semibold text-gray-800 overflow-y-auto h-16 mb-2">
+          <h3 className="text-sm font-semibold text-gray-800 overflow-y-auto h-16 mb-2 lg:text-base">
             {name}
           </h3>
 

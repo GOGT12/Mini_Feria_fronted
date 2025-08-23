@@ -29,7 +29,7 @@ function EditSuperAdmin(){
 
     try {
 
-      const backendUrl ='http://localhost:3000/api/users/edit-super-admin';
+      const backendUrl =`${import.meta.env.VITE_BACKEND_URL}/users/edit-super-admin`;
       const jwtToken = localStorage.getItem('jwtToken');
 
       const res = await fetch(backendUrl, {
@@ -50,7 +50,7 @@ function EditSuperAdmin(){
           password: "",
         })
       } else {
-        console.log('gg')
+        console.log(data.error)
       }
     } catch (error) {
       console.error("Error al conectar con el backend o procesar la respuesta:", error);

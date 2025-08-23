@@ -41,7 +41,7 @@ function Categories(){
   const fetchCategories = async () =>{
     try {
 
-      const backendUrl ='http://localhost:3000/api/categories/get-categories';
+      const backendUrl =`${import.meta.env.VITE_BACKEND_URL}/categories/get-categories`;
       const jwtToken = localStorage.getItem('jwtToken');
 
       if(!jwtToken){
@@ -92,7 +92,7 @@ function Categories(){
 
 
     try {
-      const backendUrl ='http://localhost:3000/api/categories/add-category';
+      const backendUrl =`${import.meta.env.VITE_BACKEND_URL}/categories/add-category`;
       const jwtToken = localStorage.getItem('jwtToken');
 
       const res = await fetch(backendUrl, {
@@ -115,6 +115,7 @@ function Categories(){
         fetchCategories();
       } else {
         console.log('Hubo un error al crear la categoria.')
+        console.log(data.message)
       }
     } catch(error){
       console.error('Error al conectar con el backend', error);
@@ -137,7 +138,7 @@ function Categories(){
     e.preventDefault();
     try{
 
-      const backendUrl = 'http://localhost:3000/api/categories/delete-category';
+      const backendUrl = `${import.meta.env.VITE_BACKEND_URL}/categories/delete-category`;
       const jwtToken = localStorage.getItem('jwtToken');
 
       const res = await fetch(backendUrl,{
@@ -157,6 +158,8 @@ function Categories(){
           id: undefined
         })
         fetchCategories();
+      } else{
+        console.error(data.error)
       }
     }catch(error){
       console.error('Hubo un error en el servidor', error);
