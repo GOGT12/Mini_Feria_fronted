@@ -188,7 +188,7 @@ function AddProduct(){
     ////  display_type and is_filterable  //////
 
     if (name === 'attribute_name'){
-
+      // @ts-ignore
       const displayType = e.target.selectedOptions[0].getAttribute('data-display-type');
       const newName = 'display_type'
 
@@ -637,6 +637,7 @@ function AddProduct(){
     itemsToRemoveStr.forEach(name => {
       if (Array.isArray(updatedData[name])) {
         // Elimina el segundo elemento (índice 1)
+        // @ts-ignore
         updatedData[name] = updatedData[name].filter((_, index) => index !== 1);
 
       }
