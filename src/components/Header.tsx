@@ -89,7 +89,7 @@ const Header = () => {
         </div>
 
         <div>
-          {isAdmin || isSuperAdmin && (
+          {isAdmin && (
             <div className="flex gap-2">
               <Link to={'/add-product/'}
               >
