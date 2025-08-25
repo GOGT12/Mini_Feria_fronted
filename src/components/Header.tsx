@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   const { user, logout } = useAuth();
-  const isAdmin = user && (user.role === 'admin' || user.role === 'super_admin');
+  const isSuperAdmin = user && (user.role === 'super_admin');
+  const isAdmin = user && (user.role === 'admin');
 
   //const [isOpen, setIsOpen] = useState(false);
  // const categories = ['Ropa', 'Calzado'];
@@ -66,21 +67,25 @@ const Header = () => {
             </button>
           </Link>
 
-          <Link to={'/Admins'}
+          {isSuperAdmin ? (
+            <Link to={'/Admins'}
           >
             <button
               className=" text-sm text-white bg-black px-1 py-1 rounded-lg font-bold hover:bg-gray-800 transition-colors lg:text-lg"
             >Crete Admin
             </button>
           </Link>
+          ) : ('')}
 
-          <Link to={'/edit-super-admin'}
+          {isSuperAdmin ? (
+            <Link to={'/edit-super-admin'}
           >
             <button
               className=" text-sm text-white bg-black px-1 py-1 rounded-lg font-bold hover:bg-gray-800 transition-colors lg:text-lg"
             >Edit SA
             </button>
           </Link>
+          ) : ('')}
         </div>
 
         <div>
