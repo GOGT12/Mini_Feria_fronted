@@ -39,7 +39,7 @@ function ProductDetailsComponent() {
       setLoading(true);
       setError(null);
 
-      const backendUrl = `http://localhost:3000/api/products/get-products/${id}`;
+      const backendUrl = `${import.meta.env.VITE_BACKEND_URL}/products/get-products/${id}`;
       const res = await fetch(backendUrl, {
         method: "GET",
         headers: {

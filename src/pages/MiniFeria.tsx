@@ -44,25 +44,28 @@ const MiniFeria = () => {
       fetchProducts()
     },[])
 
-    console.log(products)
 
+    
   return(
 
     <main>
 
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-        {products.map((product) => (
-
-        <div key={product.id} className="z-0 ">
-            <Product
-              id={product.id}
-              name={product.name}
-              price={product.price}
-              url={product.url}
-              stock={product.stock}
-            />
-        </div>
-        ))}
+        {products ? (
+          <div>
+            {products.map((product) => (
+              <div key={product.id} className="z-0 ">
+                  <Product
+                    id={product.id}
+                    name={product.name}
+                    price={product.price}
+                    url={product.url}
+                    stock={product.stock}
+                  />
+              </div>
+            ))}
+          </div>
+        ): ('')}
       </div>
 
     </main>
