@@ -65,6 +65,22 @@ const Header = () => {
             >Admin Login
             </button>
           </Link>
+
+          <Link to={'/Admins'}
+          >
+            <button
+              className=" text-sm text-white bg-black px-1 py-1 rounded-lg font-bold hover:bg-gray-800 transition-colors lg:text-lg"
+            >Crete Admin
+            </button>
+          </Link>
+
+          <Link to={'/edit-super-admin'}
+          >
+            <button
+              className=" text-sm text-white bg-black px-1 py-1 rounded-lg font-bold hover:bg-gray-800 transition-colors lg:text-lg"
+            >Edit SA
+            </button>
+          </Link>
         </div>
 
         <div>
