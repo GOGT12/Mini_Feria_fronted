@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   const { user, logout } = useAuth();
   const isSuperAdmin = user && (user.role === 'super_admin');
-  const isAdmin = user && (user.role === 'admin');
+  const isAdmin = user && (user.role === 'admin' || user.role === 'super_admin');
 
   //const [isOpen, setIsOpen] = useState(false);
  // const categories = ['Ropa', 'Calzado'];
