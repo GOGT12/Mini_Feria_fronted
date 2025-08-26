@@ -45,14 +45,14 @@ const MiniFeria = () => {
     },[])
 
 
-    
+
   return(
 
     <main>
 
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      <div>
         {products ? (
-          <div>
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
             {products.map((product) => (
               <div key={product.id} className="z-0 ">
                   <Product
